@@ -1,6 +1,6 @@
 # The purpose of this section is to establish a connection with the install files
 cmdkey /add:gcuifprdcusscrsta01.file.core.windows.net /user:AZURE\gcuifprdcusscrsta01 /pass:pHBJ9JFGjg6MKrvCjX2mtu4CLvBedDMdhko8YROtOxggiRpuY+NHdCg39ezVMYuiFgEM8V0lyQkKjh7ROOfJvg==
-net use Z \\gcuifprdcusscrsta01.file.core.windows.net\docstore
+net use Z: \\gcuifprdcusscrsta01.file.core.windows.net\docstore
 net use * \\gcuifprdcusscrsta01.file.core.windows.net\wgssetup
 
 # The purpose of this section is to install the required IIS roles
