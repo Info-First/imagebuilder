@@ -39,7 +39,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
 # install Visual C++ Restributable
-write-host 'AIB Customization: Install the latest Microsoft Visual C++ Redistributable'
+write-host 'Visual C++ Redistributable Installer'
 $appName = 'cm10'
 $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
@@ -49,9 +49,8 @@ $visCplusURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\VC_red
 $visCplusURLexe = 'VC_redist.x64.exe'
 $outputPath = $LocalPath + '\' + $visCplusURLexe
 Invoke-WebRequest -Uri $visCplusURL -OutFile $outputPath
-write-host 'AIB Customization: Starting Install of the latest Microsoft Visual C++ Redistributable'
 Start-Process -FilePath $outputPath -Args "/I  /norestart /quiet /log vcdist.log" -Wait
-write-host 'AIB Customization: Finished Install of the latest Microsoft Visual C++ Redistributable'
+write-host 'Visual C++ Redistributable: Completed Install'
 
 
 # install Content Manager Server
