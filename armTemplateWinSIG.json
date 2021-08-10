@@ -51,8 +51,7 @@
                         "type": "PowerShell",
                         "name": "cmInstaller",
                         "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cmInstall.ps1",
-                        "runElevated": "true",
-                        "sha256Checksum": "Get-FileHash C:\\cmInstall.ps1"
+                        "runElevated": true
                     }
             ],
             "distribute": 
