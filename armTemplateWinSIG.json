@@ -49,27 +49,9 @@
             "customize": [
                     {
                         "type": "PowerShell",
-                        "name": "CreateBuildPath",
-                        "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/buildPath.ps1"
-                    },
-                    {
-                        "type": "WindowsRestart",
-                        "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
-                        "restartTimeout": "5m"
-                    },
-                    {
-                        "type": "PowerShell",
-                        "name": "downloadBuildArtifacts",
-                        "sourceUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cmInstall.ps1",
-                        "destination":"c:\\buildArtifacts\\cmInstall.ps1"
-                    },
-                    {
-                        "type": "PowerShell",
-                        "name": "settingUpMgmtAgtPath",
-                        "inline": [
-                            "mkdir c:\\buildActions",
-                            "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt"
-                        ]
+                        "name": "cmInstaller",
+                        "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cmInstall.ps1",
+                        "runElevated": "true"
                     },
                     {
                         "type": "WindowsUpdate",
