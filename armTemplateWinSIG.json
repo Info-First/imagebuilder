@@ -52,6 +52,15 @@
                         "name": "cmInstaller",
                         "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cmInstall.ps1",
                         "runElevated": true
+                    },
+                    {
+                        "type": "WindowsUpdate",
+                        "searchCriteria": "IsInstalled=0",
+                        "filters": [
+                            "exclude:$_.Title -like '*Preview*'",
+                            "include:$true"
+                                    ],
+                        "updateLimit": 40
                     }
             ],
             "distribute": 
