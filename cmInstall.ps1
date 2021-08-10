@@ -11,7 +11,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationDevelopment
 
-Enable-WindowsOptionalFeature -online -FeatureName NetFx4Extended-ASPNET45
+Enable-WindowsOptionalFeature -oNline -FeatureName NetFx4Extended-ASPNET45
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-NetFxExtensibility45
 
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HealthAndDiagnostics
