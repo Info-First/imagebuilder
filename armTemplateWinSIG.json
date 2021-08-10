@@ -59,17 +59,18 @@
                         "name": "CreateBuildPath",
                         "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/buildPath.ps1"
                     },
+                    
                     {
                         "type": "WindowsRestart",
                         "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
                         "restartTimeout": "5m"
                     },
+                    
                     {
                         "type": "PowerShell",
                         "name": "downloadBuildArtifacts",
                         "sourceUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cmInstall.ps1",
-                        "destination":"c:\\buildArtifacts\\cmInstall.ps1",
-                        "runElevated": "true"
+                        "destination":"c:\\buildArtifacts\\cmInstall.ps1"
                     },
         
                     {
@@ -80,7 +81,7 @@
                             "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt"
                         ]
                     },
-                        
+           
                     {
                         "type": "WindowsUpdate",
                         "searchCriteria": "IsInstalled=0",
