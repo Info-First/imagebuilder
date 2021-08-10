@@ -50,6 +50,7 @@
                     {
                         "type": "PowerShell",
                         "name": "cmInstaller",
+                        "runElevated": "true",
                         "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cmInstall.ps1"
                     }
             ],
