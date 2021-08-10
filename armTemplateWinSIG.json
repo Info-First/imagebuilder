@@ -57,7 +57,7 @@
                     {
                         "type": "PowerShell",
                         "name": "CreateBuildPath",
-                        "scriptUri": "https://github.com/Info-First/imagebuilder/buildPath.ps1"
+                        "scriptUri": "https://github.com/Info-First/imagebuilder/blob/main/buildPath.ps1"
                     },
                     {
                         "type": "WindowsRestart",
@@ -67,7 +67,7 @@
                     {
                         "type": "PowerShell",
                         "name": "downloadBuildArtifacts",
-                        "sourceUri": "https://github.com/Info-First/imagebuilder/cmInstall.ps1",
+                        "sourceUri": "https://github.com/Info-First/imagebuilder/blob/main/cmInstall.ps1",
                         "destination":"c:\\buildArtifacts\\cmInstall.ps1",
                         "runElevated": "true"
                     },
