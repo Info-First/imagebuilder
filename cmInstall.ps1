@@ -3,6 +3,8 @@ cmdkey /add:gcuifprdcusscrsta01.file.core.windows.net /user:AZURE\gcuifprdcusscr
 net use Z: \\gcuifprdcusscrsta01.file.core.windows.net\docstore
 net use * \\gcuifprdcusscrsta01.file.core.windows.net\wgssetup
 
+mkdir c:\buildArtifacts
+
 # The purpose of this section is to install the required IIS roles
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer
