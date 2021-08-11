@@ -10,10 +10,8 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationDevelopment
-
-Enable-WindowsOptionalFeature -oNline -FeatureName NetFx4Extended-ASPNET45
+Enable-WindowsOptionalFeature -Online -FeatureName NetFx4Extended-ASPNET45
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-NetFxExtensibility45
-
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HealthAndDiagnostics
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpLogging
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-LoggingLibraries
@@ -26,16 +24,13 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerManagementTools
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-IIS6ManagementCompatibility
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-Metabase
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementConsole
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-BasicAuthentication
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-StaticContent
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-DefaultDocument
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIExtensions
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIFilter
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
-
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
 # install Visual C++ Restributable
@@ -122,6 +117,20 @@ $outputPath = $LocalPath + '\' + $cmclientInstallerMsi
 Invoke-WebRequest -Uri $cmclientURL -OutFile $outputPath
 Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log cmclient.log" -Wait
 write-host 'Content Manager Client: Completed Install'
+
+# import Cloudflare Public Cert
+write-host 'Cloudflare Public Cert Importer'
+$appName = 'cm10'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$cmclientURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.cer'
+$cmpublicCert = 'appgateway.cer'
+$outputPath = $LocalPath + '\' + $cmpublicCert
+Invoke-WebRequest -Uri $cmclientURL -OutFile $outputPath
+Start-Process -FilePath powershell -Args "Import-Certificate -FilePath "C:\CM10\appgateway.cer" -CertStoreLocation Cert:\LocalMachine\Root" -Wait
+write-host 'Cloudflare Public Cert: Completed Import'
 
 regsvr32.exe "C:\Program Files\Micro Focus\Content Manager\trimsdk.dll" /s
 Remove-Item -Path "C:\Users\Public\Desktop\Content Manager Desktop.lnk" -Force

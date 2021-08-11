@@ -38,6 +38,13 @@
                     "vmSize": "Standard_D2_v3",
                     "osDiskSizeGB": 127
                     },
+                    "dataDisks": [
+                        {
+                            "diskSizeGB": 128,
+                            "lun": 0,
+                            "createOption": "Empty"
+                        }
+                    ],
             "source": 
                     {
                 "type": "PlatformImage",
@@ -74,7 +81,8 @@
                         "baseosimg": "windows2019"
                     },
                     "replicationRegions": [
-                      "<region1>"
+                      "<region1>",
+                      "<region2>"
                     ]
                 }
             ]
