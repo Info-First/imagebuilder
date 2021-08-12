@@ -129,7 +129,8 @@ $cmpubliccerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\app
 $cmpublicCert = 'appgateway.cer'
 $outputPath = $LocalPath + '\' + $cmpublicCert
 Invoke-WebRequest -Uri $cmpubliccerURL -OutFile $outputPath
-Start-Process -FilePath powershell -Args "Import-Certificate -FilePath "C:\CM10\appgateway.cer" -CertStoreLocation Cert:\LocalMachine\Root" -Wait
+Start-Process -FilePath powershell.exe -Args "cd Cert:\LocalMachine\Root" -Wait
+Import-Certificate C:\CM10\appgateway.cer
 write-host 'Cloudflare Public Cert: Completed Import'
 
 # import Cloudflare Private Cert
@@ -143,7 +144,9 @@ $cmprivatecerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\ap
 $cmprivateCert = 'appgateway.pfx'
 $outputPath = $LocalPath + '\' + $cmprivateCert
 Invoke-WebRequest -Uri $cmprivatecerURL -OutFile $outputPath
-Start-Process -FilePath powershell -Args "Import-PfxCertificate -Exportable -Password CMGCCMaaS2021! -CertStoreLocation Cert:\LocalMachine\My -FilePath "C:\CM10\appgateway.pfx"" -Wait
+Start-Process -FilePath powershell -Args "cd Cert:\LocalMachine\Root"
+$pwd = ConvertTo-SecureString -String "CMGCCMaaS2021!" -AsPlainText -Force
+Import-PfxCertificate -Password $pwd -FilePath "C:\CM10\appgateway.pfx"
 write-host 'Cloudflare Private Cert: Completed Import'
 
 regsvr32.exe "C:\Program Files\Micro Focus\Content Manager\trimsdk.dll" /s
