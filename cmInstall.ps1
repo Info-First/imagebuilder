@@ -125,12 +125,26 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmclientURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.cer'
+$cmpubliccerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.cer'
 $cmpublicCert = 'appgateway.cer'
 $outputPath = $LocalPath + '\' + $cmpublicCert
-Invoke-WebRequest -Uri $cmclientURL -OutFile $outputPath
+Invoke-WebRequest -Uri $cmpubliccerURL -OutFile $outputPath
 Start-Process -FilePath powershell -Args "Import-Certificate -FilePath "C:\CM10\appgateway.cer" -CertStoreLocation Cert:\LocalMachine\Root" -Wait
 write-host 'Cloudflare Public Cert: Completed Import'
+
+# import Cloudflare Private Cert
+write-host 'Cloudflare Private Cert Importer'
+$appName = 'cm10'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$cmprivatecerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.cer'
+$cmprivateCert = 'appgateway.pfx'
+$outputPath = $LocalPath + '\' + $cmprivateCert
+Invoke-WebRequest -Uri $cmprivatecerURL -OutFile $outputPath
+Start-Process -FilePath powershell -Args "Import-PfxCertificate -Exportable -Password CMGCCMaaS2021! -CertStoreLocation Cert:\LocalMachine\My -FilePath "C:\CM10\appgateway.pfx"" -Wait
+write-host 'Cloudflare Private Cert: Completed Import'
 
 regsvr32.exe "C:\Program Files\Micro Focus\Content Manager\trimsdk.dll" /s
 Remove-Item -Path "C:\Users\Public\Desktop\Content Manager Desktop.lnk" -Force
