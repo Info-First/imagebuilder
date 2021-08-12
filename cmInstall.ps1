@@ -140,11 +140,11 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmprivatecerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.cer'
+$cmprivatecerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.pfx'
 $cmprivateCert = 'appgateway.pfx'
 $outputPath = $LocalPath + '\' + $cmprivateCert
 Invoke-WebRequest -Uri $cmprivatecerURL -OutFile $outputPath
-Start-Process -FilePath powershell -Args "cd Cert:\LocalMachine\Root"
+Start-Process -FilePath powershell -Args "cd Cert:\LocalMachine\My"
 $pwd = ConvertTo-SecureString -String "CMGCCMaaS2021!" -AsPlainText -Force
 Import-PfxCertificate -Password $pwd -FilePath "C:\CM10\appgateway.pfx"
 write-host 'Cloudflare Private Cert: Completed Import'
