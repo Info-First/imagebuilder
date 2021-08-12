@@ -118,8 +118,8 @@ Invoke-WebRequest -Uri $cmclientURL -OutFile $outputPath
 Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log cmclient.log" -Wait
 write-host 'Content Manager Client: Completed Install'
 
-# import Cloudflare Public Cert
-write-host 'Cloudflare Public Cert Importer'
+# Download Cloudflare Public Cert
+write-host 'Cloudflare Public Cert Downloader'
 $appName = 'cm10'
 $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
@@ -128,13 +128,10 @@ set-Location $LocalPath
 $cmpubliccerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.cer'
 $cmpublicCert = 'appgateway.cer'
 $outputPath = $LocalPath + '\' + $cmpublicCert
-Invoke-WebRequest -Uri $cmpubliccerURL -OutFile $outputPath
-Start-Process -FilePath powershell.exe -Args "cd Cert:\LocalMachine\Root" -Wait
-Import-Certificate C:\CM10\appgateway.cer
-write-host 'Cloudflare Public Cert: Completed Import'
+write-host 'Cloudflare Public Cert: Completed Download'
 
-# import Cloudflare Private Cert
-write-host 'Cloudflare Private Cert Importer'
+# Download Cloudflare Private Cert
+write-host 'Cloudflare Private Cert Downloader'
 $appName = 'cm10'
 $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
@@ -143,11 +140,8 @@ set-Location $LocalPath
 $cmprivatecerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.pfx'
 $cmprivateCert = 'appgateway.pfx'
 $outputPath = $LocalPath + '\' + $cmprivateCert
-Invoke-WebRequest -Uri $cmprivatecerURL -OutFile $outputPath
-Start-Process -FilePath powershell -Args "cd Cert:\LocalMachine\My"
-$pwd = ConvertTo-SecureString -String "CMGCCMaaS2021!" -AsPlainText -Force
-Import-PfxCertificate -Password $pwd -FilePath "C:\CM10\appgateway.pfx"
-write-host 'Cloudflare Private Cert: Completed Import'
+write-host 'Cloudflare Private Cert: Completed Download'
 
+cd C:\
 regsvr32.exe "C:\Program Files\Micro Focus\Content Manager\trimsdk.dll" /s
 Remove-Item -Path "C:\Users\Public\Desktop\Content Manager Desktop.lnk" -Force
