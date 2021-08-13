@@ -128,6 +128,7 @@ set-Location $LocalPath
 $cmpubliccerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.cer'
 $cmpublicCert = 'appgateway.cer'
 $outputPath = $LocalPath + '\' + $cmpublicCert
+Invoke-WebRequest -Uri $cmpubliccerURL -OutFile $outputPath
 write-host 'Cloudflare Public Cert: Completed Download'
 
 # Download Cloudflare Private Cert
@@ -140,8 +141,8 @@ set-Location $LocalPath
 $cmprivatecerURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\appgateway.pfx'
 $cmprivateCert = 'appgateway.pfx'
 $outputPath = $LocalPath + '\' + $cmprivateCert
+Invoke-WebRequest -Uri $cmprivatecerURL -OutFile $outputPath
 write-host 'Cloudflare Private Cert: Completed Download'
 
-cd C:\
 regsvr32.exe "C:\Program Files\Micro Focus\Content Manager\trimsdk.dll" /s
 Remove-Item -Path "C:\Users\Public\Desktop\Content Manager Desktop.lnk" -Force
