@@ -59,8 +59,6 @@ $cmserverURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\CM_Ser
 $cmserverInstallerMsi = 'CM_Server_x64.msi'
 $outputPath = $LocalPath + '\' + $cmserverInstallerMsi
 Invoke-WebRequest -Uri $cmserverURL -OutFile $outputPath
-Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log cmserver.log SERVERDATADIR=Z:\MicroFocusContentManager" -Wait
-write-host 'Content Manager Server: Completed Install'
 
 # install Onstream Printer Files
 write-host 'Onstream Printer Files Installer'
