@@ -33,6 +33,20 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIFilter
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
+# install MS SQL ODBC Driver Version 17
+write-host 'Version 17 MS SQL ODBC Driver Installer'
+$appName = 'cm10'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$visCplusURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\msodbcsqlv17(x64).msi'
+$visCplusURLexe = 'msodbcsqlv17(x64).msi'
+$outputPath = $LocalPath + '\' + $visCplusURLexe
+Invoke-WebRequest -Uri $visCplusURL -OutFile $outputPath
+Start-Process -FilePath $outputPath -Args "/I  /norestart /quiet /log mssqlodbcv17.log" -Wait
+write-host 'Version 17 MS SQL ODBC Driver: Completed Install'
+
 # install Visual C++ Restributable
 write-host 'Visual C++ Redistributable Installer'
 $appName = 'cm10'
