@@ -33,20 +33,6 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIFilter
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
-# install MS SQL ODBC Driver Version 17
-write-host 'Version 17 MS SQL ODBC Driver Installer'
-$appName = 'cm10'
-$drive = 'C:\'
-New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
-$LocalPath = $drive + '\' + $appName 
-set-Location $LocalPath
-$sqlODBCURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\msodbcsqlv17(x64).msi'
-$sqlODBCURLmsi = 'msodbcsqlv17(x64).msi'
-$outputPath = $LocalPath + '\' + $sqlODBCURLmsi
-Invoke-WebRequest -Uri $sqlODBCURL -OutFile $outputPath
-Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log mssqlodbcv17.log" -Wait
-write-host 'Version 17 MS SQL ODBC Driver: Completed Install'
-
 # install Visual C++ Restributable
 write-host 'Visual C++ Redistributable Installer'
 $appName = 'cm10'
@@ -61,7 +47,21 @@ Invoke-WebRequest -Uri $visCplusURL -OutFile $outputPath
 Start-Process -FilePath $outputPath -Args "/I  /norestart /quiet /log vcdist.log" -Wait
 write-host 'Visual C++ Redistributable: Completed Install'
 
-# install Content Manager Server
+# install MS SQL ODBC Driver Version 17
+write-host 'Version 17 MS SQL ODBC Driver Installer'
+$appName = 'cm10'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$sqlODBCURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\msodbcsqlv17(x64).msi'
+$sqlODBCURLmsi = 'msodbcsqlv17(x64).msi'
+$outputPath = $LocalPath + '\' + $sqlODBCURLmsi
+Invoke-WebRequest -Uri $sqlODBCURL -OutFile $outputPath
+Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log mssqlodbcv17.log" -Wait
+write-host 'Version 17 MS SQL ODBC Driver: Completed Install'
+
+# Download Content Manager Server
 write-host 'Content Manager Server Installer'
 $appName = 'cm10'
 $drive = 'C:\'
@@ -87,7 +87,7 @@ Invoke-WebRequest -Uri $onstreamURL -OutFile $outputPath
 Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log onprinter.log" -Wait
 write-host 'Onstream Printer FIles: Completed Install'
 
-# install Content Manager Webclient
+# Download Content Manager Webclient
 write-host 'Content Manager Webclient Installer'
 $appName = 'cm10'
 $drive = 'C:\'
@@ -98,10 +98,8 @@ $webclientURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\CM_We
 $webclientInstallerMsi = 'CM_WebClient_x64.msi'
 $outputPath = $LocalPath + '\' + $webclientInstallerMsi
 Invoke-WebRequest -Uri $webclientURL -OutFile $outputPath
-Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log cmwebclient.log" -Wait
-write-host 'Content Manager Webclient: Completed Install'
 
-# install Content Manager Service API
+# Download Content Manager Service API
 write-host 'Content Manager Service API Installer'
 $appName = 'cm10'
 $drive = 'C:\'
@@ -112,8 +110,6 @@ $serviceapiURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\CM_S
 $serviceapiInstallerMsi = 'CM_Service_API_x64.msi'
 $outputPath = $LocalPath + '\' + $serviceapiInstallerMsi
 Invoke-WebRequest -Uri $serviceapiURL -OutFile $outputPath
-Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log serviceapi.log SERV_API_INCLUDE_FILES='0'" -Wait
-write-host 'Content Manager Service API: Completed Install'
 
 # install Content Manager Client
 write-host 'Content Manager Client Installer'
