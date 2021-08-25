@@ -40,11 +40,11 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$visCplusURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\msodbcsqlv17(x64).msi'
-$visCplusURLexe = 'msodbcsqlv17(x64).msi'
-$outputPath = $LocalPath + '\' + $visCplusURLexe
-Invoke-WebRequest -Uri $visCplusURL -OutFile $outputPath
-Start-Process -FilePath $outputPath -Args "/I  /norestart /quiet /log mssqlodbcv17.log" -Wait
+$sqlODBCURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\msodbcsqlv17(x64).msi'
+$sqlODBCURLmsi = 'msodbcsqlv17(x64).msi'
+$outputPath = $LocalPath + '\' + $sqlODBCURLmsi
+Invoke-WebRequest -Uri $sqlODBCURL -OutFile $outputPath
+Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log mssqlodbcv17.log" -Wait
 write-host 'Version 17 MS SQL ODBC Driver: Completed Install'
 
 # install Visual C++ Restributable
@@ -60,7 +60,6 @@ $outputPath = $LocalPath + '\' + $visCplusURLexe
 Invoke-WebRequest -Uri $visCplusURL -OutFile $outputPath
 Start-Process -FilePath $outputPath -Args "/I  /norestart /quiet /log vcdist.log" -Wait
 write-host 'Visual C++ Redistributable: Completed Install'
-
 
 # install Content Manager Server
 write-host 'Content Manager Server Installer'
