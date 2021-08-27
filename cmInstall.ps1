@@ -58,7 +58,7 @@ $sqlODBCURL = '\\gcuifprdcusscrsta01.file.core.windows.net\wgssetup\CM10\msodbcs
 $sqlODBCURLmsi = 'msodbcsqlv17(x64).msi'
 $outputPath = $LocalPath + '\' + $sqlODBCURLmsi
 Invoke-WebRequest -Uri $sqlODBCURL -OutFile $outputPath
-Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log mssqlodbcv17.log" -Wait
+Start-Process -FilePath msiexec.exe -Args "/I $outputPath /norestart /quiet /log mssqlodbcv17.log IACCEPTMSODBCSQLLICENSETERMS=YES ALLUSERS=1" -Wait
 write-host 'Version 17 MS SQL ODBC Driver: Completed Install'
 
 # Download Content Manager Server
