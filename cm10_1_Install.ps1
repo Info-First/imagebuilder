@@ -137,3 +137,39 @@ $cmpublicCert = 'appgateway.cer'
 $outputPath = $LocalPath + '\' + $cmpublicCert
 Invoke-WebRequest -Uri $cmpubliccerURL -OutFile $outputPath
 write-host 'Cloudflare Public Cert: Completed Download'
+
+# Download Content Manager Server API configs
+write-host 'Content Manager Server API config Download'
+$appName = 'cm10_1'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$cmsvcAPIconfigURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\hprmServiceAPI.config'
+$cmsvcAPIconfig = 'hprmServiceAPI.config'
+$outputPath = $LocalPath + '\' + $cmsvcAPIconfig
+Invoke-WebRequest -Uri $cmsvcAPIconfigURL -OutFile $outputPath
+   
+# Download Content Manager IDOL configs
+write-host 'Content Manager Server IDOL config Download'
+$appName = 'cm10_1'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$cmidolconfigURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\hptrim.config'
+$cmidolconfig = 'hptrim.config'
+$outputPath = $LocalPath + '\' + $cmidolconfig
+Invoke-WebRequest -Uri $cmidolconfigURL -OutFile $outputPath
+   
+# Download Content Manager IDOL Components Installer
+write-host 'Content Manager IDOL Components Installer'
+$appName = 'cm10_1'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$IDOLURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_IDOLComponents_x64.msi'
+$idolInstallerMsi = 'CM_IDOLComponents_x64.msi'
+$outputPath = $LocalPath + '\' + $idolInstallerMsi
+Invoke-WebRequest -Uri $IDOLURL -OutFile $outputPath
