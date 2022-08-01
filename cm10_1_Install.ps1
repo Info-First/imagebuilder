@@ -173,3 +173,15 @@ $IDOLURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\64
 $idolInstallerMsi = 'CM_IDOLComponents_x64.msi'
 $outputPath = $LocalPath + '\' + $idolInstallerMsi
 Invoke-WebRequest -Uri $IDOLURL -OutFile $outputPath
+
+# Download Content Manager SharePoint Integration Installer
+write-host 'Content Manager SharePoint Intgration Installer'
+$appName = 'cm10_1'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$SPIURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_SharePointIntegration_x64.msi'
+$SPIInstallerMsi = 'CM_IDOLComponents_x64.msi'
+$outputPath = $LocalPath + '\' + $SPIInstallerMsi
+Invoke-WebRequest -Uri $SPIURL -OutFile $outputPath
