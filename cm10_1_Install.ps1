@@ -57,6 +57,18 @@ $cmcomcomInstallerMsi = 'CM_COMComponents_x64.msi'
 $outputPath = $LocalPath + '\' + $cmcomcomInstallerMsi
 Invoke-WebRequest -Uri $cmcomcomURL -OutFile $outputPath
 
+# Download Content Manager Email Link
+write-host 'Content Manager Email Link Installer'
+$appName = 'cm10_1'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$cmemaillinkURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_EmailLink_x64.msi'
+$cmemaillinkInstallerMsi = 'CM_EmailLink_x64.msi'
+$outputPath = $LocalPath + '\' + $cmemaillinkInstallerMsi
+Invoke-WebRequest -Uri $cmemaillinkURL -OutFile $outputPath
+
 # Download Content Manager IDOL Components
 write-host 'Content Manager IDOL Components Installer'
 $appName = 'cm10_1'
