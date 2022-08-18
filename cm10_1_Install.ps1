@@ -81,6 +81,8 @@ $cmidolInstallerMsi = 'CM_IDOLComponents_x64.msi'
 $outputPath = $LocalPath + '\' + $cmidolInstallerMsi
 Invoke-WebRequest -Uri $cmIDOLURL -OutFile $outputPath
 
+Start-Sleep -Seconds 60
+
 # Download Content Manager Media Server
 write-host 'Content Manager Media Server Installer'
 $appName = 'cm10_1'
@@ -92,6 +94,8 @@ $cmmediaURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers
 $cmmediaInstallerMsi = 'CM_MediaServer_x64.msi'
 $outputPath = $LocalPath + '\' + $cmmediaInstallerMsi
 Invoke-WebRequest -Uri $cmmediaURL -OutFile $outputPath
+
+Start-Sleep -Seconds 320
 
 # Download Content Manager Server
 write-host 'Content Manager Server Installer'
