@@ -64,12 +64,10 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmIDOLURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_IDOLComponents_x64.msi'
+$cmIDOLURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_IDOLComponents_x64.msi'
 $cmidolInstallerMsi = 'CM_IDOLComponents_x64.msi'
 $outputPath = $LocalPath + '\' + $cmidolInstallerMsi
 Invoke-WebRequest -Uri $cmIDOLURL -OutFile $outputPath
-
-Start-Sleep -Seconds 180
 
 # Download Content Manager Media Server
 write-host 'Content Manager Media Server Installer'
@@ -78,12 +76,10 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmmediaURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_MediaServer_x64.msi'
+$cmmediaURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_MediaServer_x64.msi'
 $cmmediaInstallerMsi = 'CM_MediaServer_x64.msi'
 $outputPath = $LocalPath + '\' + $cmmediaInstallerMsi
 Invoke-WebRequest -Uri $cmmediaURL -OutFile $outputPath
-
-Start-Sleep -Seconds 180
 
 # Download Content Manager Server
 write-host 'Content Manager Server Installer'
@@ -116,7 +112,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmSPIURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_SharePointIntegration_x64.msi'
+$cmSPIURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_SharePointIntegration_x64.msi'
 $cmSPIInstallerMsi = 'CM_SharePointIntegration_x64.msi'
 $outputPath = $LocalPath + '\' + $cmSPIInstallerMsi
 Invoke-WebRequest -Uri $cmSPIURL -OutFile $outputPath
@@ -212,7 +208,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmpubliccerURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\appgateway.cer'
+$cmpubliccerURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\appgateway.cer'
 $cmpublicCert = 'appgateway.cer'
 $outputPath = $LocalPath + '\' + $cmpublicCert
 Invoke-WebRequest -Uri $cmpubliccerURL -OutFile $outputPath
@@ -225,7 +221,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmsvcAPIconfigURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\hprmServiceAPI.config'
+$cmsvcAPIconfigURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\hprmServiceAPI.config'
 $cmsvcAPIconfig = 'hprmServiceAPI.config'
 $outputPath = $LocalPath + '\' + $cmsvcAPIconfig
 Invoke-WebRequest -Uri $cmsvcAPIconfigURL -OutFile $outputPath
@@ -237,7 +233,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmidolconfigURL = '\\firstnetprddocstore1.file.core.windows.net\cm101\AIB_Installers\hptrim.config'
+$cmidolconfigURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\hptrim.config'
 $cmidolconfig = 'hptrim.config'
 $outputPath = $LocalPath + '\' + $cmidolconfig
 Invoke-WebRequest -Uri $cmidolconfigURL -OutFile $outputPath
