@@ -208,7 +208,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmpubliccerURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\appgateway.cer'
+$cmpubliccerURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\appgateway.cer'
 $cmpublicCert = 'appgateway.cer'
 $outputPath = $LocalPath + '\' + $cmpublicCert
 Invoke-WebRequest -Uri $cmpubliccerURL -OutFile $outputPath
@@ -221,7 +221,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmsvcAPIconfigURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\hprmServiceAPI.config'
+$cmsvcAPIconfigURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\hprmServiceAPI.config'
 $cmsvcAPIconfig = 'hprmServiceAPI.config'
 $outputPath = $LocalPath + '\' + $cmsvcAPIconfig
 Invoke-WebRequest -Uri $cmsvcAPIconfigURL -OutFile $outputPath
@@ -233,7 +233,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmidolconfigURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\hptrim.config'
+$cmidolconfigURL = '\\cmgccprdcm101binaries.file.core.windows.net\cm101\AIB_Installers\hptrim.config'
 $cmidolconfig = 'hptrim.config'
 $outputPath = $LocalPath + '\' + $cmidolconfig
 Invoke-WebRequest -Uri $cmidolconfigURL -OutFile $outputPath
