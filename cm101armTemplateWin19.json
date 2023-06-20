@@ -18,7 +18,6 @@
             "type": "PowerShell",
             "name": "cm10_1_Installer",
             "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cm10_1_Install.ps1",
-            "runElevated": true
           },
           {
             "type": "WindowsUpdate",
