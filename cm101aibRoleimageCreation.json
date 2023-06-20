@@ -1,10 +1,10 @@
 {
-    "Name": "Azure CM101v2 Role Builder Definition",
+    "Name": "Azure CM101v1 Federal Role Builder Definition",
     "IsCustom": true,
-    "Description": "CM 101v2 Image Builder access to create resources for the image build, you should delete or split out as appropriate",
+    "Description": "CM 101v1 Federal Image Builder access to create resources for the image build, you should delete or split out as appropriate",
     "Actions": [
         "Microsoft.Compute/galleries/read",
-        "Microsoft.Compute/galleries/images/read",
+        "Microsoft.Compute/galleriesimages/read",
         "Microsoft.Compute/galleries/images/versions/read",
         "Microsoft.Compute/galleries/images/versions/write",
 
