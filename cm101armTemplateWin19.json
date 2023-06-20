@@ -35,7 +35,7 @@
             "buildTimeoutInMinutes" : 100,
             "vmProfile": 
                     {
-                    "vmSize": "Standard_D4a_v4",
+                    "vmSize": "Standard_A8_v2",
                     "osDiskSizeGB": 127
                     },
                     "dataDisks": [
