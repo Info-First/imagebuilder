@@ -1,91 +1,66 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "imageTemplateName": {
-        "type": "string"
-        },
-        "api-version": {
-          "type": "string"
-        },
-        "svclocation": {
-            "type": "string"
-        }
-    },
-    "variables": {
-    },
-    "resources": [
-      {
-        "name": "[parameters('imageTemplateName')]",
+    {
         "type": "Microsoft.VirtualMachineImages/imageTemplates",
-        "apiVersion": "[parameters('api-version')]",
-        "location": "[parameters('svclocation')]",
-        "dependsOn": [],
-        "tags": {
-            "imagebuilderTemplate": "CM10_1_AzureImageBuilderSIG",
-            "userIdentity": "enabled"
-                },
-            "identity": {
-                "type": "UserAssigned",
-                        "userAssignedIdentities": {
-                        "<imgBuilderId>": {}     
-                    }
-                    },
+            "apiVersion": "2022-02-14",
+            "location": "<region>",
+            "tags": {
+                "imagebuilderTemplate": "CM10_1_AzureImageBuilderSIG",
+                "userIdentity": "enabled"
+        },
+        "identity": {
+            "type": "UserAssigned",
+                "userAssignedIdentities": {
+                "<imgBuilderId>": {}     
+    },
         "properties": {
-            "buildTimeoutInMinutes" : 100,
-            "vmProfile": 
-                    {
-                    "vmSize": "Standard_A8_v2",
-                    "osDiskSizeGB": 127
-                    },
-                    "dataDisks": [
-                        {
-                            "diskSizeGB": 128,
-                            "lun": 0,
-                            "createOption": "Empty"
-                        }
-                    ],
-            "source": 
-                    {
-                "type": "PlatformImage",
-                    "publisher": "MicrosoftWindowsServer",
-                    "offer": "WindowsServer",
-                    "sku": "2019-Datacenter",
-                    "version": "latest"
-            },
-            "customize": [
-                    {
-                        "type": "PowerShell",
-                        "name": "cm10_1_Installer",
-                        "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cm10_1_Install.ps1",
-                        "runElevated": true
-                    },
-                    {
-                        "type": "WindowsUpdate",
-                        "searchCriteria": "IsInstalled=0",
-                        "filters": [
-                            "exclude:$_.Title -like '*Preview*'",
-                            "include:$true"
-                                    ],
-                        "updateLimit": 40
-                    }
-            ],
-            "distribute": 
-            [
-                {   
-                    "type": "SharedImage",
-                    "galleryImageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>",
-                    "runOutputName": "<runOutputName>",
-                    "artifactTags": {
-                        "source": "azureVmImageBuilder",
-                        "baseosimg": "windows2019"
-                    },
-                    "replicationRegions": [
-                      "<region1>"
-                    ]
-                }
-            ]
-            }
+          "buildTimeoutInMinutes": 100,
+          "customize": [                    
+        {
+            "type": "PowerShell",
+            "name": "cm10_1_Installer",
+            "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cm10_1_Install.ps1",
+            "runElevated": true
+        },
+        {
+            "type": "WindowsUpdate",
+            "searchCriteria": "IsInstalled=0",
+            "filters": [
+                "exclude:$_.Title -like '*Preview*'",
+                "include:$true"
+                        ],
+            "updateLimit": 100
         }
+    ],
+          "distribute": [     {               
+            "type": "SharedImage",
+            "galleryImageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>",
+            "runOutputName": "<runOutputName>",
+            "artifactTags": {
+              "source": "azureVmImageBuilder",
+              "baseosimg": "windows2019"
+          },
+            "replicationRegions": [
+                "<region1>" ]
+        }
+    ],
+          "source": {                
+            "type": "PlatformImage",
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2019-Datacenter",
+            "version": "latest"},
+            "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>",
+          "vmProfile": {
+            "vmSize": "Standard_A8_v2",
+            "osDiskSizeGB": 127
+            },
+            "dataDisks": [
+                {
+                    "diskSizeGB": 128,
+                    "lun": 0,
+                    "createOption": "Empty"
+        },
     ]
-}    
+          }
+        }
+      }
