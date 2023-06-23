@@ -1,6 +1,6 @@
 {
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2019-04-01",
+    "apiVersion": "2022-02-14",
     "location": "<region>",
     "tags": {
       "imagebuilderTemplate": "CM10_1_AzureImageBuilderSIG",
