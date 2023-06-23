@@ -51,7 +51,7 @@
           "version": "latest"
         },
         "vmProfile": {
-          "vmSize": "Standard_A8_v2",
+          "vmSize": "Standard_D4s_v3",
           "osDiskSizeGB": 127
         },
         "dataDisks": [
