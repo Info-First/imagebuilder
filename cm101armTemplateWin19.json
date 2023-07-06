@@ -1,7 +1,25 @@
 {
-    "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2022-02-14",
-    "location": "<region>",
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "imageTemplateName": {
+      "type": "string"
+    },
+    "api-version": {
+      "type": "string"
+    },
+    "svclocation": {
+      "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "name": "[parameters('imageTemplateName')]",
+      "type": "Microsoft.VirtualMachineImages/imageTemplates",
+      "apiVersion": "[parameters('api-version')]",
+      "location": "[parameters('svclocation')]",
+      "dependsOn": [],
     "tags": {
       "imagebuilderTemplate": "CM10_1_AzureImageBuilderSIG",
       "userIdentity": "enabled"
@@ -9,16 +27,12 @@
     "identity": {
       "type": "UserAssigned",
       "userAssignedIdentities": {
-        "<imgBuilderId>": {}
-      },
+        "/subscriptions/7a7265ae-e83e-4a9d-b3ad-2bad1b85b2c2/resourcegroups/iffedprdCM101image-reg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/iffedprdaibmanagedidentity01": {}
+      }
+    },
       "properties": {
-        "buildTimeoutInMinutes": 100,
+        "buildTimeoutInMinutes": 200,
         "customize": [
-          {
-            "type": "PowerShell",
-            "name": "cm10_1_Installer",
-            "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/main/cm10_1_Install.ps1",
-          },
           {
             "type": "WindowsUpdate",
             "searchCriteria": "IsInstalled=0",
@@ -32,14 +46,14 @@
         "distribute": [
           {
             "type": "SharedImage",
-            "galleryImageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>",
-            "runOutputName": "<runOutputName>",
+            "galleryImageId": "/subscriptions/7a7265ae-e83e-4a9d-b3ad-2bad1b85b2c2/resourceGroups/iffedprdCM101image-reg1/providers/Microsoft.Compute/galleries/iffedprdCM101Gallery1/images/iffedprdCM101Images1",
+            "runOutputName": "iffedprdcm101baseServerv1",
             "artifactTags": {
               "source": "azureVmImageBuilder",
               "baseosimg": "windows2019"
             },
             "replicationRegions": [
-              "<region1>"
+              "centralus"
             ]
           }
         ],
@@ -63,4 +77,5 @@
         ]
       }
     }
-  }
+]
+}
