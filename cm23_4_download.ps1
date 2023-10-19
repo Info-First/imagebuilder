@@ -11,7 +11,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmclientURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_Client_x64.msi'
+$cmclientURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_Client_x64.msi'
 $cmclientInstallerMsi = 'CM_Client_x64.msi'
 $outputPath = $LocalPath + '\' + $cmclientInstallerMsi
 Invoke-WebRequest -Uri $cmclientURL -OutFile $outputPath
@@ -23,7 +23,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmcomcomURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_COMComponents_x64.msi'
+$cmcomcomURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_COMComponents_x64.msi'
 $cmcomcomInstallerMsi = 'CM_COMComponents_x64.msi'
 $outputPath = $LocalPath + '\' + $cmcomcomInstallerMsi
 Invoke-WebRequest -Uri $cmcomcomURL -OutFile $outputPath
@@ -35,7 +35,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmIDOLURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_IDOLComponents_x64.msi'
+$cmIDOLURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_IDOLComponents_x64.msi'
 $cmidolInstallerMsi = 'CM_IDOLComponents_x64.msi'
 $outputPath = $LocalPath + '\' + $cmidolInstallerMsi
 Invoke-WebRequest -Uri $cmIDOLURL -OutFile $outputPath
@@ -47,7 +47,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmmediaURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_MediaServer_x64.msi'
+$cmmediaURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_MediaServer_x64.msi'
 $cmmediaInstallerMsi = 'CM_MediaServer_x64.msi'
 $outputPath = $LocalPath + '\' + $cmmediaInstallerMsi
 Invoke-WebRequest -Uri $cmmediaURL -OutFile $outputPath
@@ -59,7 +59,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmserverURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_Server_x64.msi'
+$cmserverURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_Server_x64.msi'
 $cmserverInstallerMsi = 'CM_Server_x64.msi'
 $outputPath = $LocalPath + '\' + $cmserverInstallerMsi
 Invoke-WebRequest -Uri $cmserverURL -OutFile $outputPath
@@ -71,7 +71,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmserviceapiURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_Service_API_x64.msi'
+$cmserviceapiURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_Service_API_x64.msi'
 $cmserviceapiInstallerMsi = 'CM_Service_API_x64.msi'
 $outputPath = $LocalPath + '\' + $cmserviceapiInstallerMsi
 Invoke-WebRequest -Uri $cmserviceapiURL -OutFile $outputPath
@@ -83,7 +83,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmSPIURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_SharePointIntegration_x64.msi'
+$cmSPIURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_SharePointIntegration_x64.msi'
 $cmSPIInstallerMsi = 'CM_SharePointIntegration_x64.msi'
 $outputPath = $LocalPath + '\' + $cmSPIInstallerMsi
 Invoke-WebRequest -Uri $cmSPIURL -OutFile $outputPath
@@ -95,7 +95,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmwebclientURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_WebClient_x64.msi'
+$cmwebclientURL = '\\ifcomprdbinaries.file.core.windows.net\ccm234\AIB_Installers\64BitInstalls\CM_WebClient_x64.msi'
 $cmwebclientInstallerMsi = 'CM_WebClient_x64.msi'
 $outputPath = $LocalPath + '\' + $cmwebclientInstallerMsi
 Invoke-WebRequest -Uri $cmwebclientURL -OutFile $outputPath
@@ -107,7 +107,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmwebdrawerURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\CM_WebDrawer_x64.msi'
+$cmwebdrawerURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_WebDrawer_x64.msi'
 $cmwebdrawerInstallerMsi = 'CM_WebDrawer_x64.msi'
 $outputPath = $LocalPath + '\' + $cmwebdrawerInstallerMsi
 Invoke-WebRequest -Uri $cmwebdrawerURL -OutFile $outputPath
@@ -119,7 +119,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$sqlodbcURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\UPDATE ME.msi'
+$sqlodbcURL = '\\ifcomprdbinaries.file.core.windows.net\cmcm234\AIB_Installers\64BitInstalls\UPDATE ME.msi'
 $sqlodbcInstallerMsi = 'UPDATE ME.msi'
 $outputPath = $LocalPath + '\' + $sqlodbcInstallerMsi
 Invoke-WebRequest -Uri $sqlodbcURL -OutFile $outputPath
@@ -131,7 +131,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmonstreamURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\OnstreamPrinterFiles_x64.msi'
+$cmonstreamURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\OnstreamPrinterFiles_x64.msi'
 $cmonstreamInstallerMsi = 'OnstreamPrinterFiles_x64.msi'
 $outputPath = $LocalPath + '\' + $cmonstreamInstallerMsi
 Invoke-WebRequest -Uri $cmonstreamURL -OutFile $outputPath
@@ -143,7 +143,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$sharepointcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
+$sharepointcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
 $sharepointcomsInstallerMsi = 'sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
 $outputPath = $LocalPath + '\' + $sharepointcomsInstallerMsi
 Invoke-WebRequest -Uri $sharepointcomsURL -OutFile $outputPath
@@ -155,7 +155,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$vcrestURL = '\\iifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\VC_redist.x64.exe'
+$vcrestURL = '\\iifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\VC_redist.x64.exe'
 $vcrestInstallerMsi = 'VC_redist.x64.exe'
 $outputPath = $LocalPath + '\' + $vcrestInstallerMsi
 Invoke-WebRequest -Uri $vcrestURL -OutFile $outputPath
@@ -167,7 +167,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$sqlcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\64BitInstalls\x64SQLSysClrTypes.msi'
+$sqlcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\x64SQLSysClrTypes.msi'
 $sqlcomsInstallerMsi = 'x64SQLSysClrTypes.msi'
 $outputPath = $LocalPath + '\' + $sqlcomsInstallerMsi
 Invoke-WebRequest -Uri $sqlcomsURL -OutFile $outputPath
@@ -179,7 +179,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmsvcAPIconfigURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\hprmServiceAPI.config'
+$cmsvcAPIconfigURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\hprmServiceAPI.config'
 $cmsvcAPIconfig = 'hprmServiceAPI.config'
 $outputPath = $LocalPath + '\' + $cmsvcAPIconfig
 Invoke-WebRequest -Uri $cmsvcAPIconfigURL -OutFile $outputPath
@@ -191,7 +191,7 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$cmidolconfigURL = '\\ifcomprdbinaries.file.core.windows.net\cm101\AIB_Installers\hptrim.config'
+$cmidolconfigURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\hptrim.config'
 $cmidolconfig = 'hptrim.config'
 $outputPath = $LocalPath + '\' + $cmidolconfig
 Invoke-WebRequest -Uri $cmidolconfigURL -OutFile $outputPath
