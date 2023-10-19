@@ -57,7 +57,7 @@
                     {
                         "type": "PowerShell",
                         "name": "cm23_3_Downloader",
-                        "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/cm23.4/cm23_4_download.ps1",
+                        "scriptUri": "https://raw.githubusercontent.com/Info-First/imagebuilder/cm23_4/cm23_4_download.ps1",
                         "runElevated": true
                     },
                     {
