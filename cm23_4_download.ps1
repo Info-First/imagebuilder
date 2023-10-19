@@ -1,5 +1,5 @@
 # The purpose of this section is to establish a connection with the install files
-cmdkey /add:ifcomprdbinaries.file.core.windows.net /user:AZURE\ifcomprdbinaries /pass:##REPLACE##
+cmdkey /add:ifcomprdbinaries.file.core.windows.net /user:AZURE\ifcomprdbinaries /pass:fP9FsB9Sk6ZaoMCZrxWDotrVa+GLfR1Brnj0YJxLl2vf8usiK+sRmiveFihOnZekz2Ayo2S9S5wf+AStHKiiUA==
 net use Z: \\ifcomprdbinaries.file.core.windows.net\docstore
 net use * \\ifcomprdbinaries.file.core.windows.net\cm234
 
