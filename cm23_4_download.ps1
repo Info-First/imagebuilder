@@ -119,8 +119,8 @@ $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$sqlodbcURL = '\\ifcomprdbinaries.file.core.windows.net\cmcm234\AIB_Installers\64BitInstalls\UPDATE ME.msi'
-$sqlodbcInstallerMsi = 'UPDATE ME.msi'
+$sqlodbcURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\msodbcsql.msi'
+$sqlodbcInstallerMsi = 'msodbcsql.msi'
 $outputPath = $LocalPath + '\' + $sqlodbcInstallerMsi
 Invoke-WebRequest -Uri $sqlodbcURL -OutFile $outputPath
 
@@ -135,18 +135,6 @@ $cmonstreamURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\
 $cmonstreamInstallerMsi = 'OnstreamPrinterFiles_x64.msi'
 $outputPath = $LocalPath + '\' + $cmonstreamInstallerMsi
 Invoke-WebRequest -Uri $cmonstreamURL -OutFile $outputPath
-
-# Download SharePoint Client Components
-write-host 'SharePoint Client Installer'
-$appName = 'cm23_4'
-$drive = 'C:\'
-New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
-$LocalPath = $drive + '\' + $appName 
-set-Location $LocalPath
-$sharepointcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
-$sharepointcomsInstallerMsi = 'sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
-$outputPath = $LocalPath + '\' + $sharepointcomsInstallerMsi
-Invoke-WebRequest -Uri $sharepointcomsURL -OutFile $outputPath
 
 # Download Visual C++ Restributable
 write-host 'Visual C++ Restributable Installer'
@@ -171,6 +159,18 @@ $sqlcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64B
 $sqlcomsInstallerMsi = 'x64SQLSysClrTypes.msi'
 $outputPath = $LocalPath + '\' + $sqlcomsInstallerMsi
 Invoke-WebRequest -Uri $sqlcomsURL -OutFile $outputPath
+
+# Download SharePoint Client Components
+write-host 'SharePoint Client Installer'
+$appName = 'cm23_4'
+$drive = 'C:\'
+New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
+$LocalPath = $drive + '\' + $appName 
+set-Location $LocalPath
+$sharepointcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
+$sharepointcomsInstallerMsi = 'sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
+$outputPath = $LocalPath + '\' + $sharepointcomsInstallerMsi
+Invoke-WebRequest -Uri $sharepointcomsURL -OutFile $outputPath
 
 # Download Content Manager Server API configs
 write-host 'Content Manager Server API config Download'
