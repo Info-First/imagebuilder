@@ -136,41 +136,17 @@ $cmonstreamInstallerMsi = 'OnstreamPrinterFiles_x64.msi'
 $outputPath = $LocalPath + '\' + $cmonstreamInstallerMsi
 Invoke-WebRequest -Uri $cmonstreamURL -OutFile $outputPath
 
-# Download Visual C++ Restributable
-write-host 'Visual C++ Restributable Installer'
+# Download .NET Installer
+write-host '.NET Installer'
 $appName = 'cm23_4'
 $drive = 'C:\'
 New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
 $LocalPath = $drive + '\' + $appName 
 set-Location $LocalPath
-$vcrestURL = '\\iifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\VC_redist.x64.exe'
-$vcrestInstallerMsi = 'VC_redist.x64.exe'
-$outputPath = $LocalPath + '\' + $vcrestInstallerMsi
-Invoke-WebRequest -Uri $vcrestURL -OutFile $outputPath
-
-# Download SQL Server Components
-write-host 'SQL Server Components Installer'
-$appName = 'cm23_4'
-$drive = 'C:\'
-New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
-$LocalPath = $drive + '\' + $appName 
-set-Location $LocalPath
-$sqlcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\x64SQLSysClrTypes.msi'
-$sqlcomsInstallerMsi = 'x64SQLSysClrTypes.msi'
-$outputPath = $LocalPath + '\' + $sqlcomsInstallerMsi
-Invoke-WebRequest -Uri $sqlcomsURL -OutFile $outputPath
-
-# Download SharePoint Client Components
-write-host 'SharePoint Client Installer'
-$appName = 'cm23_4'
-$drive = 'C:\'
-New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
-$LocalPath = $drive + '\' + $appName 
-set-Location $LocalPath
-$sharepointcomsURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
-$sharepointcomsInstallerMsi = 'sharepointclientcomponents_16-6906-1200_x64-en-us.msi'
-$outputPath = $LocalPath + '\' + $sharepointcomsInstallerMsi
-Invoke-WebRequest -Uri $sharepointcomsURL -OutFile $outputPath
+$dotnetURL = '\\iifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\NET_4.7.2.exe'
+$dotnetInstallerMsi = 'NET_4.7.2.exe'
+$outputPath = $LocalPath + '\' + $dotnetInstallerMsi
+Invoke-WebRequest -Uri $dotnetURL -OutFile $outputPath
 
 # Download Content Manager Server API configs
 write-host 'Content Manager Server API config Download'
