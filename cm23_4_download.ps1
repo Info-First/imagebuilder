@@ -76,18 +76,6 @@ $cmserviceapiInstallerMsi = 'CM_Service_API_x64.msi'
 $outputPath = $LocalPath + '\' + $cmserviceapiInstallerMsi
 Invoke-WebRequest -Uri $cmserviceapiURL -OutFile $outputPath
 
-# Download Content Manager SharePoint Integration
-write-host 'Content Manager SharePoint Intgration Installer'
-$appName = 'cm23_4'
-$drive = 'C:\'
-New-Item -Path $drive -Name $appName  -ItemType Directory -ErrorAction SilentlyContinue
-$LocalPath = $drive + '\' + $appName 
-set-Location $LocalPath
-$cmSPIURL = '\\ifcomprdbinaries.file.core.windows.net\cm234\AIB_Installers\64BitInstalls\CM_SharePointIntegration_x64.msi'
-$cmSPIInstallerMsi = 'CM_SharePointIntegration_x64.msi'
-$outputPath = $LocalPath + '\' + $cmSPIInstallerMsi
-Invoke-WebRequest -Uri $cmSPIURL -OutFile $outputPath
-
 # Download Content Manager Webclient
 write-host 'Content Manager Webclient Installer'
 $appName = 'cm23_4'
